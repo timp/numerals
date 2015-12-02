@@ -5,7 +5,18 @@ package uk.pizey.tim;
  */
 public class Numerals {
   public static void main(String[] args) {
-    System.out.println(convert(args[1]));
+    if (args.length != 1) {
+      System.err.println("A single roman numeral input is required.");
+      System.exit(1);
+    }
+    int result = 0; 
+    try {
+      result = convert(args[0]);
+    } catch (IllegalArgumentException e) {
+      System.err.println(e.getMessage());
+      System.exit(1);
+    }
+    System.out.println(result);
   }
 
   public static int convert(String in) {
@@ -23,12 +34,6 @@ public class Numerals {
         previousCharValue = convertChar(chars[i - 1]);
       }
       if (thisCharValue < nextCharValue) {
-        if (chars[i] == 'V'
-            || chars[i] == 'L'
-            || chars[i] == 'D') {
-          throw new IllegalArgumentException(
-              chars[i] + " may not be used in a prefix subtraction");
-        }
         if (!mayBeDeductedFrom(chars[i], chars[i + 1])) {
           throw new IllegalArgumentException(chars[i] + " may not be used as a prefix subtraction from " + chars[i + 1]);
         }
