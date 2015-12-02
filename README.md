@@ -13,7 +13,7 @@ The system will accept upper or lowercase input.
 
 To perform the tasks: 
 
-    $ ./tasks.sh
+    $ ./tasks.sh 
     Part 1
     
     MMDCDXLIV is  2944
@@ -31,10 +31,8 @@ To perform the tasks:
     MMDLIV is  2554
     MMXDLIV is not valid because
        X may not be used as a prefix subtraction from D
-    MCMXCX is not valid because
-       C may not be used as a prefix subtraction from M
-    MCMXCVI is not valid because
-       C may not be used as a prefix subtraction from M
+    MCMXCX is  2000
+    MCMXCVI is  1996
 
  
 ## Controversy 
@@ -44,7 +42,12 @@ They existed for a long period of time and had no single interpretation.
 The example parsed in the tasks, `MMDCDXLIV`, is considered by some parsers 
 to be invalid as `DCD` can be represented as `CM` and brevity normally decides 
 between two representations, similarly for `VIV` which is better represented as `IX`. 
- 
+
+## Further Rules
+
+The addition of further rules which checked whether the representation was canonical, 
+ie the most short by comparing with the output from a reverse transform could be used 
+to eliminate `VIV` and `MCMXCX`.
  
 ## How to Read Roman Numerals
 ###Know the symbols and their values.

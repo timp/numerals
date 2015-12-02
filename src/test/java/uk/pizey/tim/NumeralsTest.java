@@ -53,4 +53,38 @@ public class NumeralsTest
       }
     }
   }
+
+  public void testValues() {
+    // Could be expressed more simply as IX
+    assertEquals(9, Numerals.convertOrZero("VIV"));
+    assertEquals(1009, Numerals.convertOrZero("MIX"));
+    assertEquals(0, Numerals.convertOrZero("LID"));
+    assertEquals(509, Numerals.convertOrZero("DIX"));
+    assertEquals(0, Numerals.convertOrZero("LICX"));
+    assertEquals(159, Numerals.convertOrZero("CLIX"));
+    assertEquals(2554, Numerals.convertOrZero("MMDLIV"));
+    assertEquals(0, Numerals.convertOrZero("MMXDLIV"));
+    // This should fail, requires a simplification rule
+    assertEquals(2000, Numerals.convertOrZero("MCMXCX"));
+    assertEquals(1996, Numerals.convertOrZero("MCMXCVI"));
+    assertEquals(2057, Numerals.convertOrZero("MMLVII"));
+    assertEquals(40, Numerals.convertOrZero("XL"));
+    assertEquals(29, Numerals.convertOrZero("XXIX"));
+    assertEquals(399, Numerals.convertOrZero("CCCXCIX"));
+    assertEquals(444, Numerals.convertOrZero("CDXLIV"));
+    assertEquals(1, Numerals.convertOrZero("I"));
+    assertEquals(4, Numerals.convertOrZero("IV"));
+    assertEquals(9, Numerals.convertOrZero("IX"));
+    assertEquals(40, Numerals.convertOrZero("XL"));
+    assertEquals(50, Numerals.convertOrZero("L"));
+    assertEquals(90, Numerals.convertOrZero("XC"));
+    assertEquals(100, Numerals.convertOrZero("C"));
+    assertEquals(400, Numerals.convertOrZero("CD"));
+    assertEquals(500, Numerals.convertOrZero("D"));
+    assertEquals(900, Numerals.convertOrZero("CM"));
+    assertEquals(1000, Numerals.convertOrZero("M"));
+
+  }
+
+
 }

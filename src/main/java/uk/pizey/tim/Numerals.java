@@ -19,7 +19,7 @@ public class Numerals {
     System.out.println(result);
   }
 
-  public static int convert(String in) {
+  static int convert(String in) {
     String toConvert = in.toUpperCase();
     int value = 0;
     char[] chars = toConvert.toCharArray();
@@ -76,19 +76,29 @@ public class Numerals {
 
   static boolean mayBeDeductedFrom(char lesser, char greater) {
     if (lesser == 'I') {
-      if (greater == 'X'
-          || greater == 'V') {
+      if (greater == 'V'
+          || greater == 'X') {
         return true;
       }
     } else if (lesser == 'X') {
-      if (greater == 'L') {
+      if (greater == 'L'
+          || greater == 'C') {
         return true;
       }
     } else if (lesser == 'C') {
-      if (greater == 'D') {
+      if (greater == 'D'
+          || greater == 'M') {
         return true;
       }
     }
     return false;
+  }
+
+  public static int convertOrZero(String in) {
+    try {
+      return convert(in);
+    } catch (IllegalArgumentException e) {
+      return 0;
+    }
   }
 }
